@@ -47,3 +47,6 @@ class Enemy:
     def move(self):
         self.x += self.speed
     
+    def off_screen(self, screen_height):
+        return self.rect.y > screen_height+100
+    

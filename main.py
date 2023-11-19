@@ -161,11 +161,17 @@ while True:
         enemy.move()
         enemy.update(cam_x, cam_y)
         enemy.draw(screen)
+
+        if enemy.off_screen(HEIGHT):
+            enemies.remove(enemy)
+        # Check collision between players and enemies
         if player_1.collides_with(enemy):
             player_1.lives -= 1
             enemies.remove(enemy)
         if player_2.collides_with(enemy):
             player_2.lives -= 1
+            enemies.remove(enemy)
+        
 
     # Update all players (2)
     player_1.update(cam_x, cam_y)
